@@ -1,11 +1,12 @@
 using System.Collections.Generic;
-using API.Entity;
 using Microsoft.AspNetCore.Identity;
 
 namespace API.Entities
 {
-    public class AppUser : IdentityUser<int>
+    public class AppUser
     {
+        public int AppUserId { get; set; }
+        public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone1 { get; set; }
@@ -16,7 +17,10 @@ namespace API.Entities
         public string Answer { get; set; }
         public bool IsTrialMode { get; set; }
 
-        // public ICollection<AppUserRole> UserRoles { get; set; }
+        public byte[] PasswordHash { get; set; }
+        public byte[] PasswordSalt { get; set; }
+
+        public List<Project> Projects { get; set; }
 
     }
 
